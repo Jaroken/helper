@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="helper",
+    name="kphelper",
     version="0.0.1",
     author="Kenneth Preston",
     author_email="kenneth.j.preston@gmail.com",
