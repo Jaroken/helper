@@ -1,0 +1,22 @@
+import pandas as pd
+import xlsxwriter
+
+def df_list_excel(excel_name, list_of_df=None, list_of_sheetname=None):
+    """Write multiple sheets to excel spreadsheets
+        Parameters:
+            excel_name (str): File name of xlsx outfile
+            list_of_df (list): List of pandas DataFrames to write
+            list_of_sheetname (list): List of sheet names to apply
+        Returns:
+            Excel File written to disk
+    """
+    writer = pd.ExcelWriter(excel_name, engine='xlsxwriter')
+    
+    if len(list_of_df) != len(list_of_sheetname):
+        print('List of sheetnames does not match List of dataframes')
+        list_of_sheetnames = ['sheet_{}'.format(i) for i in range(len(list_of_df))]
+        
+
+    [list_of_df[i].to_excel(writer, sheet_name=list_of_sheetname[i]) for i in range(len(list_of_df))]
+    
+    print(excel_name + 'Succesfully wrote to disk.')
