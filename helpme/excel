@@ -18,5 +18,6 @@ def df_list_excel(excel_name, list_of_df=None, list_of_sheetname=None):
         
 
     [list_of_df[i].to_excel(writer, sheet_name=list_of_sheetname[i]) for i in range(len(list_of_df))]
+    writer.close()
     
     print(excel_name + 'Succesfully wrote to disk.')
