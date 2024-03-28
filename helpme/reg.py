@@ -1,6 +1,12 @@
 import numpy as np
+import pandas as pd
 
 def logform(df, x, y):
+    """A function to create a plot line for the resulting formula and the formula itself for a univariate logistic regression
+    params:
+    df: Pandas DataFrame
+    x: independent variable name (string)
+    y: dependent variable name (string)"""
     ind = np.array(list(df[x])) 
     dep = np.array(list(df[y]))
     fit = np.polyfit(np.log(ind), dep, 1)
